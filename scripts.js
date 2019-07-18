@@ -1,27 +1,83 @@
-let first = ''
-let last = ''
-let user = $.ajax({
-    url: 'https://randomuser.me/api/',
+// let first = ''
+// let last = ''
+
+$.ajax({
+    url: 'https://randomuser.me/api/?results=12',
     dataType: 'json',
+
     success: function (data) {
-        first = user.responseJSON.results[0].name.first
-        last = user.responseJSON.results[0].name.last
+        // console.log(data)
+        // data.results.forEach(employee => {
+        //     console.log(employee.name.first);
+        // console.log(user.responseJSON.results);
 
-        const api =
-            `<div class="card">
-    <div class="card-img-container">
-        <img class="card-img" src="https://placehold.it/90x90" alt="profile picture">
-                    </div>
-        <div class="card-info-container">
-            <h3 id="name" class="card-name cap">` + first + " " + last + `</h3>
-            <p class="card-text">email</p>
-            <p class="card-text cap">city, state</p>
-        </div>`
+        let json = data.results
+
+        for (let i = 0; i < 12; i++) {
+
+            let first = json[i].name.first
+            let last = json[i].name.last
+            let email = json[i].email
+            let city = json[i].location.city
+            let state = json[i].location.state
+            let picture = json[i].picture.thumbnail
+            // let name = first + last
+            // let phone = json.phone
+            // let location = json.location
+            // let birthday = json.dob.date
 
 
-        $("#gallery").append(api);
+            $("#gallery").append(
+                `<div class="card">
+                    <div class="card-img-container">
+                        <img class="card-img" src=${picture} alt="profile picture">
+                                </div>
+                        <div class="card-info-container">
+                            <h3 id="name" class="card-name cap">${first} ${last}</h3>
+                            <p class="card-text">${email}</p>
+                            <p class="card-text cap">${city}, ${state}</p>
+                         </div>
+                     </div>`
+            );
+
+
+        }
+
+
+
+
+
+
+        // $("body").append(`<div class="modal-container">
+        //         <div class="modal">
+        //             <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+        //             <div class="modal-info-container">
+        //                 <img class="modal-img" src=${first} alt="profile picture">
+        //                 <h3 id="name" class="modal-name cap">${first} ${last}</h3>
+        //                 <p class="modal-text">${email}</p>
+        //                 <p class="modal-text cap">${city}</p>
+        //                 <hr>
+
+        //             </div>
+        //         </div>`)
+
+
+
     }
-});
+
+})
+
+
+$('.search-container').append(
+    `<form action="#" method="get">
+    <input type="search" id="search-input" class="search-input" placeholder="Search...">
+    <input type="submit" value="&#x1F50D;" id="search-submit" class="search-submit">
+</form>`);
+
+
+$("#gallery").on('click', '.card', function (e) {
+    console.log("steve")
+})
 
 
 
@@ -30,38 +86,9 @@ let user = $.ajax({
 
 
 
-// const api2 =
-//     `<form action="#" method="get">
-//     <input type="search" id="search-input" class="search-input" placeholder="Search...">
-//         <input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit">
-//                         </form>`
-// $(".seach-container").append(api2);
-
-// const api3 =
-//     `<div class="modal-container">
-//     <div class="modal">
-//         <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
-//         <div class="modal-info-container">
-//             <img class="modal-img" src="https://placehold.it/125x125" alt="profile picture">
-//                 <h3 id="name" class="modal-name cap">name</h3>
-//                 <p class="modal-text">email</p>
-//                 <p class="modal-text cap">city</p>
-//                 <hr>
-//                     <p class="modal-text">(555) 555-5555</p>
-//                     <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
-//                     <p class="modal-text">Birthday: 10/21/2015</p>
-//                     </div>`
-// $("body").append(api3);
 
 
-// function getJSON("https://randomuser.me/api/", "callback") {
-//  const xhr = new XMLHttpRequest();
-//  xhr.open('GET', url);
-//  xhr.onload = () => {
-//    if(xhr.status === 200) {
-//      let data = JSON.parse(xhr.responseText);
-//      return callback(data);
-//    }
-//  };
-//  xhr.send();
-// }
+
+
+
+
