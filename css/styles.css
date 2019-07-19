@@ -16,7 +16,14 @@ html, body {
 body {
     font-family: "Nunito", sans-serif;
     text-align: center;
-    background: rgba(235, 235, 235, 0.9);
+     background-image: url("https://www.gearthblog.com/wp-content/uploads/2016/06/Tonga1-3840x2160.jpg");
+   /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -30,7 +37,7 @@ header {
 
 header h1 {
     font-size: 1.25em;
-    color: rgba(50, 50, 50, 0.9);
+    color: white;
     margin-top: 35px;
 }
 
@@ -75,7 +82,7 @@ header h1 {
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    background: red;
+    background: transparent;
 }
   
 .card {
@@ -88,11 +95,16 @@ header h1 {
     max-width: 360px;
     margin: 10px 10px 20px;
     padding: 10px;
-    background: rgba(245, 245, 245, 0.9);
+    background: rgba(194, 189, 189, 0.9);
     border-radius: 0.25em;
     border: 1px solid rgba(50, 50, 50, 0.3);
+    
     transition: .4s ease-out;
     overflow: hidden;
+  
+  box-shadow: 0 4px 8px 0 rgba(137, 143, 143, 0.911), 0 6px 20px 0 rgba(170, 154, 154, 0.959);
+ 
+    
 }
 
 .card-img {
@@ -132,6 +144,7 @@ header h1 {
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.7);
+    
 }
 
 .modal {
@@ -141,8 +154,9 @@ header h1 {
     min-height: 415px;
     margin: 10px auto auto;
     padding-bottom: 15px;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 0.25em;
+      
+ background: rgba(255, 255, 255, 0.829); 
+  border-radius: 15px 50px;
     border: 1px solid rgba(100, 100, 100, 0.3);
     transition: .4s ease-out;
 }
